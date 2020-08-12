@@ -1,2 +1,8 @@
-config:
-  info: "master branch,spring-cloud-config/config-dev.yml version=1"
+address:
+  area: Pudong
+  city: Shanghai
+  country: China
+  detail: 外滩 18 号
+  province: Shanghai
+applicationName: spring-cloud-config-demo-dev
+fileName: '"application-dev.properties"'
