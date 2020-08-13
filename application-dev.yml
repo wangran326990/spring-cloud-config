@@ -1,8 +1,53 @@
-address:
-  area: Pudong
-  city: Shanghai
-  country: China
-  detail: 外滩 18 号
-  province: Shanghai
-applicationName: spring-cloud-config-demo-dev
-fileName: '"application-dev.properties"'
+spring:
+#  application:
+#    name: position
+  datasource:
+    #url: jdbc:postgresql://192.168.40.129:5432/postgres
+    #url: jdbc:postgresql://49.233.202.187:31222/postgres
+    # 新建的tsdb数据库
+    url: jdbc:postgresql://server.reliablesense.cn:31595/postgres
+    username: admin
+    password: secret
+  redis:
+    host: server.reliablesense.cn
+    port: 31715
+    #    host: 192.168.40.130
+    #    port: 6379
+    database: 0
+  rabbitmq:
+    host: server.reliablesense.cn
+    port: 31194
+    username: admin
+    password: secret
+    virtual-host: /
+
+url:
+  device:
+    #root: https://dev.device.reliablesense.cn/api/
+    root: http://localhost:9992/api/
+mybatis:
+  mapper-locations: classpath:mapper/*Mapper.xml
+  configuration:
+    map-underscore-to-camel-case: true
+  type-handlers-package: cn.reliablesense.posbackend.typehandler
+mybatis-plus:
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+logging:
+  level:
+    cn.reliablesense.posbackend.dao: DEBUG
+keycloak:
+  auth-server-url: http://localhost:8280/auth
+  realm: dev
+  resource: test
+  principal-attribute: preferred_username
+  cors: true
+  bearer-only: true
+  credentials:
+    #secret: b5e76c41-9fd1-4d82-915f-e07c66b81e15
+    secret: f21e9476-a755-4e4d-9a09-1595afab83da
+info:
+  app.name: atguigu-microservicecloud
+  company.name: www.atguigu.com
+  build.artifactId: $project.artifactId$
+  build.version: $project.version$
